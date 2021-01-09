@@ -1,4 +1,4 @@
-import {TextField} from '@material-ui/core'
+import {TextField, makeStyles} from '@material-ui/core'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 import React, {FC, useState} from 'react'
 
@@ -11,7 +11,17 @@ const options: Option[] = [
   {label: 'ddd', value: 'ddd'},
 ]
 
+const useStyles = makeStyles({
+  option: {
+    '&[aria-selected="true"]': {
+      backgroundColor: 'rgb(38, 132, 255)',
+    }
+  }
+})
+
+
 export const MyAutoComplete: FC = () => {
+  const classes = useStyles();
   // Notice: the initial value should be passed explicitly
   // if no initialState provided, it will be undefined and we will get error:
   // `Material-UI: A component is changing the uncontrolled value state of Autocomplete to be controlled.`
@@ -19,6 +29,9 @@ export const MyAutoComplete: FC = () => {
 
   return <div>
     <Autocomplete
+      classes={{
+        option: classes.option
+      }}
       options={options}
       getOptionLabel={(option) => option.label}
       value={selected}

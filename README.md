@@ -1,19 +1,7 @@
-TypeScript React "material-ui" AutoComplete Demo
+TypeScript React "material-ui" AutoComplete Custom Selected Background Color Demo
 ===================================
 
-需要注意的是：
-
-```
-const [selected, setSelected] = useState<Option | null>(null)
-```
-
-此时必须显式传入`null`。如果写成`useState<Option|null>()`, 会报错：
-
-```
-Material-UI: A component is changing the uncontrolled value state of Autocomplete to be controlled.
-```
-
-由于通常我们习惯使用undefined来作为不存在的值，所以这里需要特别注意。
+如何覆盖AutoComplete被选中的值的样式
 
 ```
 npm install
